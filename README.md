@@ -1,0 +1,2 @@
+# testDjango
+Prepared for students
