@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+{% block content %}
+  <img src="/static/images/mountains.jpg" alt="sdsds" height="200" width="200">
+    <h1>This is Index.html.</h1>
+    <div class="container">
+      <table class="table">
+      {% for stud in studData %}
+        <tr>
+          <td>{{ stud.rno }}</td>
+          <td>{{ stud.name }} </td>
+          <td>{{ stud.address }}</td>
+          <td>{{ stud.status }} </td>
+        </tr>
+      {% endfor %}
+      </table>
+    </div>
+{% endblock content %}
