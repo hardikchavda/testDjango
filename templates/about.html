@@ -1,4 +1,10 @@
 {% extends "main.html" %}
+{% comment 'BLOCKE TITLE' %}
+This data is used with Main Pages and derived Index.
+{% endcomment %}
+{% block title %}
+<title>About Us | {{ block.super }}</title>
+{% endblock  %}
 {% block content %}
     asdsdsd hello
 {% endblock content %}
