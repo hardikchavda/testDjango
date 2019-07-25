@@ -4,17 +4,44 @@
   <img src="/static/images/mountains.jpg" alt="sdsds" height="200" width="200">
     <h1>This is Index.html.</h1>
     <div class="container">
+<<<<<<< HEAD
       <table class="table">
       {% for stud in studData %}
       
+=======
+      <table class="table">      
+      {% for stud in studData %}
+>>>>>>> 43c0584d8e79d7ae37e81c2e73de215c4a28ed00
         <tr>        
-          <td class="{% cycle 'tdclass' 'tdclass1' '' '' %}">{{ stud.rno }}</td>
-          <td>{{ stud.name }} </td>
+       
+          <td class="{% cycle 'tdclass' 'tdclass1' '' '' %}">{{ stud.rno }}</td>       
+         <td>{{ forloop.counter }} </td>          
+        {% filter lower %}          
+         <td>{{ stud.name }} </td>          
           <td>{{ stud.address }}</td>
+<<<<<<< HEAD
           <td>{{ stud.status|title }} </td>
           <td>{% now "D d M Y" %} </td>
         </tr>
       
+=======
+          <td>{{ stud.status|title }} </td>   
+          {% firstof stud1  %}       
+        </tr>
+        {% endfilter %}
+      
+      {% endfor %}
+      {% for stud in studData %}
+        <tr>
+          <td>{{forloop.counter|add:2}} </td>          
+          
+          <td>{{ stud.name }} </td>
+          <td>{{ stud.address }}</td>          
+          <td>{{ stud.status }} </td>
+          {% comment 'This is Comment' %}
+          {% endcomment %} 
+        </tr>
+>>>>>>> 43c0584d8e79d7ae37e81c2e73de215c4a28ed00
       {% endfor %}
       
       </table>
