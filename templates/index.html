@@ -1,24 +1,31 @@
 {% extends "main.html" %}
 
 {% block content %}
-  <img src="/static/images/mountains.jpg" alt="sdsds" height="200" width="200">
-    <h1>This is Index.html.</h1>
-    <div class="container">
-      <table class="table">
-      {% for stud in studData %}
-      
-        <tr>        
-       
-          <td class="{% cycle 'tdclass' 'tdclass1' '' '' %}">{{ stud.rno }}</td>       
-         <td>{{ forloop.counter }} </td>          
-        {% filter lower %}          
-         <td>{{ stud.name }} </td>          
-          <td>{{ stud.address }}</td>
-          <td>{{ stud.status|title }} </td>
-          <td>{% now "D d M Y" %} </td>
-        </tr>
-      
-      {% endfor %}
+<img src="/static/images/mountains.jpg" alt="sdsds" height="200" width="200">
+<h1>This is Index.html.</h1>
+<div class="container">
+  
 
-    </div>
+<UL>
+    {% for stud in studData %}
+     {% ifchanged stud.address %}
+        <hr>
+    {% endifchanged %}
+   
+ 
+     <li> {{ stud.rno }}      
+       {{ stud.name }} 
+       {{ stud.address }} 
+       {{ stud.data|filesizeformat }}
+       {{ stud.status|title }}  
+       {{ stud.movie }}
+       {{ stud.dob | date:"SHORT_DATE_FORMAT"}}
+        {{ stud.car|default_if_none:"Mercedez" }} 
+         </li>
+     
+   
+
+    {% endfor %}
+</UL>
+</div>
 {% endblock content %}
