@@ -5,18 +5,23 @@
 <h1>This is Index.html.</h1>
 <div class="container">
     <UL>
+      
         {% for stud in studData %}
+       
+        
         {% ifchanged stud.address %}
         <hr>
-        {% endifchanged %}
+        {% endifchanged %}        
         <li> {{ stud.rno }}
-            {{ stud.name }}
-            {{ stud.address }}
+           {{ stud.name }} 
+            {{ stud.address|slugify }}
             {{ stud.data|filesizeformat }}
             {{ stud.status|title }}
             {{ stud.movie }}
             {{ stud.dob | date:"SHORT_DATE_FORMAT"}}
             {{ stud.car|default_if_none:"Mercedez" }}
+            {{ stud.filestype|linenumbers}}
+            {{ stud.urldata|urlencode }}
         </li>
 
         {% endfor %}

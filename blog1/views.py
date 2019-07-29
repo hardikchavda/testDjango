@@ -11,7 +11,8 @@ studInfo = [
         'status': 'mojilo',
         'dob':date.today(),
         'car':None,
-        'data':12645423
+        'data':12645423        
+        
     },
     {
         'rno': '2',
@@ -26,10 +27,11 @@ studInfo = [
       {
         'rno': '3',
         'name': 'Deep',
-        'address': 'Japan',
+        'address': 'Japan    Jamkhabhadiya',
         'status': 'mojilo',
         'dob':'Fri 26 Jul 2019',
-        'car':None
+        'car':None,
+        'urldata': 'http://google.com?=falanudhiknu'
     },
     {
         'rno': '4',
@@ -37,7 +39,10 @@ studInfo = [
         'address': 'Japan',
         'status': 'mojilo2',
         'dob':'Fri 26 Jul 2019',
-        'car':None
+        'car':None,
+        'filestype':"""one
+        two
+        three"""
     }
 ]
 
