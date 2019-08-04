@@ -1,6 +1,5 @@
 from django.contrib import admin
-from blog1.models import stud,marks
+from blog1.models import studInfo, studResult
 # Register your models here.
-
-admin.site.register(stud)
-admin.site.register(marks)
+admin.site.register(studInfo)
+admin.site.register(studResult)
