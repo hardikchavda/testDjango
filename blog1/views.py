@@ -6,14 +6,24 @@ studInfo = [
         'rno': '1',
         'name': 'Jeet',
         'address': 'Rajkot',
-        'status': 'mojilo'
+        'status': 'mojilo',
+        'num':123456789
     },
     {
         'rno': '2',
         'name': 'Neeraj',
         'address': 'Rajkot',
-        'status': 'mojilo2'
+        'status': 'mojilo2',
+        'num':123456789
+    },
+    {
+        'rno': '2',
+        'name': 'Neeraj',
+        'address': 'Rajkot',
+        'status': 'mojilo2',
+        'num':123456789
     }
+    
 ]
 
 

@@ -1,24 +1,25 @@
 {% extends "main.html" %}
 
 {% block content %}
-  <img src="/static/images/mountains.jpg" alt="sdsds" height="200" width="200">
-    <h1>This is Index.html.</h1>
-    <div class="container">
-      <table class="table">
+<img src="/static/images/mountains.jpg" alt="sdsds" height="200" width="200">
+<h1>This is Index.html.</h1>
+<div class="container">
+  <table class="table">
     {% for stud in studData|slice:"2" %}
     
     <tr>
       <td class="{% cycle 'tdclass' 'tdclass1' '' '' %}">{{ stud.rno }}</td>
-         <td>{{ forloop.counter }} </td>          
-        {% filter lower %}          
-         <td>{{ stud.name }} </td>          
-          <td>{{ stud.address }}</td>
-          <td>{{ stud.status|title }} </td>
-          <td>{% now "D d M Y" %} </td>
-        </tr>
-      {% endfilter %}
-      {% endfor %}
-      
-      </table>
-    </div>
+      <td>{{ forloop.counter }} </td>
+      {% filter lower %}
+      <td>{{ stud.name }} </td>
+      <td>{{ stud.address }}</td>
+      <td>{{ stud.status|title }} </td>
+      <td>{{ stud.num|get_digit:2 }} </td>
+      <td>{% now "D d M Y" %} </td>
+    </tr>
+    {% endfilter %}
+    {% endfor %}
+
+  </table>
+</div>
 {% endblock content %}
