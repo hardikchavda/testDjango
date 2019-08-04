@@ -5,11 +5,10 @@
     <h1>This is Index.html.</h1>
     <div class="container">
       <table class="table">
-      {% for stud in studData %}
-      
-        <tr>        
-       
-          <td class="{% cycle 'tdclass' 'tdclass1' '' '' %}">{{ stud.rno }}</td>       
+    {% for stud in studData|slice:"2" %}
+    
+    <tr>
+      <td class="{% cycle 'tdclass' 'tdclass1' '' '' %}">{{ stud.rno }}</td>
          <td>{{ forloop.counter }} </td>          
         {% filter lower %}          
          <td>{{ stud.name }} </td>          
@@ -17,7 +16,7 @@
           <td>{{ stud.status|title }} </td>
           <td>{% now "D d M Y" %} </td>
         </tr>
-      
+      {% endfilter %}
       {% endfor %}
       
       </table>
