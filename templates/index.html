@@ -6,7 +6,7 @@
 <div class="container">
     <UL>
       
-        {% for stud in studData,studResultdata %}
+        {% for stud in studData %}
        
         
         {% comment %} {% ifchanged stud.address %}
@@ -28,7 +28,7 @@
     <li> {{ stud.rno }} 
          {{ stud.rname }} 
          {{ stud.raddress }} 
-         {{ stud.django }}
+         
          </li>
 
         {% endfor %}

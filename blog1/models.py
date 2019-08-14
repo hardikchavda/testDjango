@@ -1,10 +1,17 @@
 from django.db import models
 
+city = [
+    ('rkt','Rajkot'),
+    ('amd','Ahemedabad'),
+    ('sur','Surat')
+    ]
+
 class studInfo(models.Model):
-    rno = models.IntegerField(primary_key=True)
-    rname = models.CharField(max_length=150)
-    raddress = models.CharField( max_length=255)
-    rphone = models.IntegerField(null=True)
+    rno = models.AutoField(primary_key=True,verbose_name="Roll Number.")
+    rname = models.CharField(max_length=150, verbose_name="Student Name")
+    raddress = models.CharField( max_length=255, verbose_name="Address")
+    rcity = models.CharField(default="Rajkot",choices=city,max_length=50,verbose_name="City")
+    rphone = models.IntegerField(blank=True,null=True,verbose_name="Contact Number")
 
     def __str__(self):
         return self.rname
@@ -15,7 +22,7 @@ class studInfo(models.Model):
     
  
 class studResult(models.Model):
-    sInfo = models.ForeignKey("studInfo")
+    sInfo =  models.ForeignKey("studInfo",  on_delete=models.CASCADE)
     django = models.IntegerField(null=False)
     progR = models.IntegerField(null=False)
     ionic = models.IntegerField(null=False)
@@ -26,5 +33,5 @@ class studResult(models.Model):
         return str(self.sInfo)
 
     class Meta:
-        verbose_name = "Student Result"
+        verbose_name = "Student's Result"
         verbose_name_plural = "Student's Result"

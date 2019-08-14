@@ -1,5 +1,6 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect,Http404
 from blog1.models import studInfo,studResult
 from datetime import date
 import time
@@ -53,12 +54,32 @@ def index(request):
     studInfo_data = studInfo.objects.order_by('rno')    
     studResult_data = studResult.objects.order_by('sInfo')
 
-    data_dict = {
+    context = {
         'studData': studInfo_data,
         'studResultdata':studResult_data
     }    
-    return render(request, 'index.html', context=data_dict)
+    return render(request, 'index.html', context)
+
+# Decorator
+# @login_required(login_url='/admin/login/') 
+
+def about(request):    
+    res =  HttpResponse()
+    if request.user.is_authenticated:
+        res.content = "<html><b>Your Welcome</b></html>"
+    else:
+        raise Http404
+        # return HttpResponseRedirect('/admin/login/?next=/about/')
+   
 
 
-def about(request):
-    return render(request, 'about.html', {'title': 'About Us'})
+
+
+    # res.write("Page Not Found.")
+    # print(request.user)
+    # print(dir(request))
+    # print(res.status_code)
+    # res.status_code = 404
+    # print(res.status_code)
+    return res
+    # return render(request, 'about.html', {'title': 'About Us'})
