@@ -6,5 +6,43 @@ This data is used with Main Pages and derived Index.
 <title>About Us | {{ block.super }}</title>
 {% endblock  %}
 {% block content %}
-    asdsdsd hello
+<div class="container">
+    <div class="row-fluid">
+        <div class="span10">
+            <div class="row-fluid">
+                <div class="span3">
+
+                </div>
+                <div class="span7">
+                    <legend> User Registeration Form </legend>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{ about_us_frm }}
+                        <div class="form-actions">
+                            <input type="submit" value="Submit" class="btn btn-primary">
+                            <input type="button" value="Cancel" class="btn">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+</form>
 {% endblock content %}

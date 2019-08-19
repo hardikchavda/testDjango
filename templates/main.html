@@ -1,32 +1,75 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    {% block title %}
-    <title>Main</title>
-    {% endblock title %}
-  
 
-    {% include "linksonly.html" %}
-    <style>
-    .tdclass{
-      font-weight:bold;      
+<head>
+  <meta charset="utf-8">
+  {% block title %}
+  <title>Main</title>
+  {% endblock title %}
+
+
+  {% include "linksonly.html" %}
+  <style>
+    .tdclass {
+      font-weight: bold;
     }
-    .tdclass1{
-      font-weight:bold;
-     color:red;
+
+    .tdclass1 {
+      font-weight: bold;
+      color: red;
     }
-    </style>
-  </head>
-  <body>
+  </style>
+</head>
 
-    <a href="{% url 'index' %}"> Home </a>
-    <a href="{% url 'about' %}"> About </a>
+<body>
 
-    {% block content %}{% endblock %}
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
-  </html>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">Title</a>
+        <div class="nav-collapse collapse navbar-responsive-collapse">
+          <ul class="nav">
+            <li class="active"><a href="{% url 'index' %}">Home</a></li>
+            
+            <li><a href="{% url 'about' %}"> About </a></li>
+           
+          </ul>
+          <form class="navbar-search pull-left" action="">
+            <input type="text" class="search-query span2" placeholder="Search">
+          </form>
+          <ul class="nav pull-right">
+            <li><a href="#">Link</a></li>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div>
+    </div><!-- /navbar-inner -->
+  </div>
+
+
+
+
+  {% block content %}{% endblock %}
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="/static/js/bootstrap.js"></script>
+</body>
+
+</html>

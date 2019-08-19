@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from blog1.models import studInfo,studResult
+from blog1.forms import abtusfrm
 from datetime import date
 import time
 # Create your views here.
@@ -64,22 +65,27 @@ def index(request):
 # @login_required(login_url='/admin/login/') 
 
 def about(request):    
-    res =  HttpResponse()
-    if request.user.is_authenticated:
-        res.content = "<html><b>Your Welcome</b></html>"
-    else:
-        raise Http404
-        # return HttpResponseRedirect('/admin/login/?next=/about/')
-   
-
-
-
-
+    # res =  HttpResponse()
+    # if request.user.is_authenticated:
+    #     res.content = "<html><b>Your Welcome</b></html>"
+    # else:
+    #     raise Http404
+    #     # return HttpResponseRedirect('/admin/login/?next=/about/')
     # res.write("Page Not Found.")
     # print(request.user)
     # print(dir(request))
     # print(res.status_code)
     # res.status_code = 404
     # print(res.status_code)
-    return res
-    # return render(request, 'about.html', {'title': 'About Us'})
+    # return res
+
+    about_us_frm = abtusfrm(request.POST or None)
+    if about_us_frm.is_valid():
+        print(request.POST)
+        
+    context = {
+        'title': 'About Us',
+        'about_us_frm':about_us_frm,
+        }
+        
+    return render(request, 'about.html',context )
