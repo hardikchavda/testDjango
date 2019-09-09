@@ -17,10 +17,13 @@ This data is used with Main Pages and derived Index.
                     <legend> User Registeration Form </legend>
                     <form action="" method="POST">
                         {% csrf_token %}
-                        {{ about_us_frm }}
+                        <div class="controls">
+                            {{ about_us_frm }}
+                        </div>
+                        
                         <div class="form-actions">
                             <input type="submit" value="Submit" class="btn btn-primary">
-                            <input type="button" value="Cancel" class="btn">
+                            <input type="reset" value="Cancel" class="btn">
                         </div>
                     </form>
                 </div>

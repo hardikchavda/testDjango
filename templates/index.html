@@ -25,10 +25,10 @@
             
         </li> {% endcomment %}
         
-    <li> {{ stud.rno }} 
+    <li> 
          {{ stud.rname }} 
          {{ stud.raddress }} 
-         
+         <a href="{% url 'about' stud.rno %} ">Edit</a> <a href="{% url 'about' stud.rno%}">Delete</a>
          </li>
 
         {% endfor %}
