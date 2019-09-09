@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from blog1.models import studInfo,studResult
-from blog1.forms import abtusfrm
+from blog1.forms import abtusfrm,dataForm
 from datetime import date
 import time
 # Create your views here.
@@ -64,7 +64,7 @@ def index(request):
 # Decorator
 # @login_required(login_url='/admin/login/') 
 
-def about(request):    
+def about(request,rno):    
     # res =  HttpResponse()
     # if request.user.is_authenticated:
     #     res.content = "<html><b>Your Welcome</b></html>"
@@ -79,9 +79,12 @@ def about(request):
     # print(res.status_code)
     # return res
 
-    about_us_frm = abtusfrm(request.POST or None)
+    instance = studInfo.objects.get(rno=rno)
+    about_us_frm = dataForm(request.POST or None,instance=instance)
+    
     if about_us_frm.is_valid():
-        print(request.POST)
+        # print("data executed",request.POST)
+        about_us_frm.save()
         
     context = {
         'title': 'About Us',
